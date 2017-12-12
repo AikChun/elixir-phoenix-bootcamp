@@ -4,7 +4,7 @@ defmodule Cards do
   """
 
   @doc """
-    Retuns a list of strings representing a deck of cards
+    Returns a list of strings representing a deck of cards
   """
   def create_deck do
     values = ["Ace", "Two", "Three", "Four", "Five"]
@@ -16,17 +16,16 @@ defmodule Cards do
   end
 
   def shuffle(deck) do
-    Enum.shuffle(deck) 
+    Enum.shuffle(deck)
   end
 
   @doc """
     Determines if a deck contains a given card
 
-  ## Examples
-    
-      iex> deck = Cards.create_deck
-      iex> Cards.contains?(deck, "Two of Spades")
-      true
+  ## Example
+
+      iex> Cards.contains?(["One", "Two"], "Two")
+      false
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -36,12 +35,6 @@ defmodule Cards do
     Divides a deck into a hand and the remainder of a deck.
     The `hand_size` argument indicates how many cards should be in the hand.
 
-  ## Examples
-    
-      iex> deck = Cards.create_deck
-      iex> {hand, _deck} = Cards.deal(deck, 1)
-      iex> hand
-      ["Ace of Spades"]
   """
   def deal(deck, hand_size) do
     Enum.split(deck, hand_size)
